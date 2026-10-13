@@ -1,5 +1,4 @@
 // ===== CONFIGURAÇÃO =====
-// ⚠️ TROQUE A SENHA ABAIXO POR UMA QUE SÓ VOCÊ SAIBA
 const SENHA_CADASTRO = 'nutri2025';
 const CHAVE_SESSAO = 'nutri_sessao_ok';
 
@@ -28,6 +27,7 @@ const feedbackTextEl = document.getElementById('feedback-text');
 const explanationEl = document.getElementById('explanation');
 const nextBtn = document.getElementById('next-btn');
 const finalScoreEl = document.getElementById('final-score');
+const restartBtn = document.getElementById('restart-btn');
 const mensagemCadastroEl = document.getElementById('mensagem-cadastro');
 const mensagemSenhaEl = document.getElementById('mensagem-senha');
 
@@ -56,7 +56,6 @@ async function iniciar() {
 document.getElementById('btn-simulado').addEventListener('click', iniciarSimulado);
 
 document.getElementById('btn-cadastrar').addEventListener('click', () => {
-  // Se já entrou com senha nesta sessão, vai direto
   if (sessionStorage.getItem(CHAVE_SESSAO) === 'ok') {
     abrirCadastro();
   } else {

@@ -2,7 +2,6 @@
 const SUPABASE_URL = 'https://fnbxprwnwhfpsgoasehs.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_TJKNXbZW1mVYnR96xu6Mrg_cuDRR2nC';
 
-// Função auxiliar para fazer requisições ao Supabase
 const supabase = {
   // Buscar todas as questões
   async buscarQuestoes() {
