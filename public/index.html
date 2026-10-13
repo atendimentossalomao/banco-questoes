@@ -32,7 +32,27 @@
       </div>
     </div>
 
-    <!-- TELA 2: SIMULADO -->
+    <!-- TELA 2: SENHA -->
+    <div id="senha" class="screen hidden">
+      <h2>Área restrita</h2>
+      <p class="descricao-senha">Digite a senha para cadastrar questões.</p>
+
+      <form id="form-senha">
+        <label>
+          Senha
+          <input type="password" id="campo-senha" required autocomplete="current-password">
+        </label>
+
+        <div class="form-actions">
+          <button type="submit">Entrar</button>
+          <button type="button" id="btn-cancelar-senha" class="btn-secondary">Voltar</button>
+        </div>
+      </form>
+
+      <p id="mensagem-senha" class="mensagem hidden"></p>
+    </div>
+
+    <!-- TELA 3: SIMULADO -->
     <div id="quiz" class="screen hidden">
       <div class="progress">
         <span id="progress-text">Questão 1 de 1</span>
@@ -52,7 +72,7 @@
       <button id="voltar-menu-quiz" class="btn-voltar">Voltar ao menu</button>
     </div>
 
-    <!-- TELA 3: RESULTADO -->
+    <!-- TELA 4: RESULTADO -->
     <div id="result" class="screen hidden">
       <h2>Resultado Final</h2>
       <p id="final-score"></p>
@@ -60,7 +80,7 @@
       <button id="voltar-menu-result" class="btn-voltar">Voltar ao menu</button>
     </div>
 
-    <!-- TELA 4: CADASTRO -->
+    <!-- TELA 5: CADASTRO -->
     <div id="cadastro" class="screen hidden">
       <h2>Cadastrar Nova Questão</h2>
 
@@ -126,7 +146,7 @@
       <p id="mensagem-cadastro" class="mensagem hidden"></p>
     </div>
 
-    <!-- TELA 5: CARREGANDO -->
+    <!-- TELA 6: CARREGANDO -->
     <div id="loading" class="screen">
       <p>Carregando...</p>
     </div>

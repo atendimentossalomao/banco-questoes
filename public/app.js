@@ -1,3 +1,8 @@
+// ===== CONFIGURAÇÃO =====
+// ⚠️ TROQUE A SENHA ABAIXO POR UMA QUE SÓ VOCÊ SAIBA
+const SENHA_CADASTRO = 'nutri2025';
+const CHAVE_SESSAO = 'nutri_sessao_ok';
+
 // ===== ESTADO GLOBAL =====
 let questions = [];
 let currentIndex = 0;
@@ -6,6 +11,7 @@ let answered = false;
 
 // ===== REFERÊNCIAS AOS ELEMENTOS =====
 const menuEl = document.getElementById('menu');
+const senhaEl = document.getElementById('senha');
 const quizEl = document.getElementById('quiz');
 const resultEl = document.getElementById('result');
 const cadastroEl = document.getElementById('cadastro');
@@ -22,12 +28,12 @@ const feedbackTextEl = document.getElementById('feedback-text');
 const explanationEl = document.getElementById('explanation');
 const nextBtn = document.getElementById('next-btn');
 const finalScoreEl = document.getElementById('final-score');
-const restartBtn = document.getElementById('restart-btn');
 const mensagemCadastroEl = document.getElementById('mensagem-cadastro');
+const mensagemSenhaEl = document.getElementById('mensagem-senha');
 
 // ===== NAVEGAÇÃO ENTRE TELAS =====
 function mostrarTela(nome) {
-  [menuEl, quizEl, resultEl, cadastroEl, loadingEl].forEach(el => {
+  [menuEl, senhaEl, quizEl, resultEl, cadastroEl, loadingEl].forEach(el => {
     el.classList.add('hidden');
   });
   document.getElementById(nome).classList.remove('hidden');
@@ -39,20 +45,53 @@ async function iniciar() {
   try {
     const total = await supabase.contarQuestoes();
     totalQuestoesEl.textContent = total;
-    mostrarTela('menu');
   } catch (err) {
     console.error(err);
     totalQuestoesEl.textContent = '0';
-    mostrarTela('menu');
   }
+  mostrarTela('menu');
 }
 
 // ===== MENU =====
 document.getElementById('btn-simulado').addEventListener('click', iniciarSimulado);
+
 document.getElementById('btn-cadastrar').addEventListener('click', () => {
+  // Se já entrou com senha nesta sessão, vai direto
+  if (sessionStorage.getItem(CHAVE_SESSAO) === 'ok') {
+    abrirCadastro();
+  } else {
+    mensagemSenhaEl.classList.add('hidden');
+    document.getElementById('campo-senha').value = '';
+    mostrarTela('senha');
+    setTimeout(() => document.getElementById('campo-senha').focus(), 100);
+  }
+});
+
+function abrirCadastro() {
   document.getElementById('form-cadastro').reset();
   mensagemCadastroEl.classList.add('hidden');
   mostrarTela('cadastro');
+}
+
+// ===== SENHA =====
+document.getElementById('form-senha').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const digitada = document.getElementById('campo-senha').value;
+
+  if (digitada === SENHA_CADASTRO) {
+    sessionStorage.setItem(CHAVE_SESSAO, 'ok');
+    abrirCadastro();
+  } else {
+    mensagemSenhaEl.textContent = '❌ Senha incorreta.';
+    mensagemSenhaEl.className = 'mensagem erro';
+    mensagemSenhaEl.classList.remove('hidden');
+    document.getElementById('campo-senha').value = '';
+    document.getElementById('campo-senha').focus();
+  }
+});
+
+document.getElementById('btn-cancelar-senha').addEventListener('click', () => {
+  mostrarTela('menu');
 });
 
 // ===== SIMULADO =====
@@ -67,7 +106,6 @@ async function iniciarSimulado() {
       return;
     }
 
-    // Embaralhar
     questions = questions.sort(() => Math.random() - 0.5);
 
     currentIndex = 0;
