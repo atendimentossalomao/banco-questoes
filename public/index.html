@@ -13,11 +13,29 @@
       <p class="subtitle">Concursos de Nutrição</p>
     </header>
 
-    <div id="loading">Carregando questões...</div>
+    <!-- TELA 1: MENU PRINCIPAL -->
+    <div id="menu" class="screen">
+      <div class="menu-info">
+        <p>Total de questões cadastradas: <strong id="total-questoes">...</strong></p>
+      </div>
 
-    <div id="quiz" class="hidden">
+      <div class="menu-buttons">
+        <button id="btn-simulado" class="menu-btn primary">
+          <span class="icon">▶</span>
+          <span>Iniciar Simulado</span>
+        </button>
+
+        <button id="btn-cadastrar" class="menu-btn secondary">
+          <span class="icon">＋</span>
+          <span>Cadastrar Nova Questão</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- TELA 2: SIMULADO -->
+    <div id="quiz" class="screen hidden">
       <div class="progress">
-        <span id="progress-text">Questão 1 de 3</span>
+        <span id="progress-text">Questão 1 de 1</span>
         <span id="score-text">Acertos: 0</span>
       </div>
 
@@ -31,15 +49,90 @@
       </div>
 
       <button id="next-btn" class="hidden">Próxima</button>
+      <button id="voltar-menu-quiz" class="btn-voltar">Voltar ao menu</button>
     </div>
 
-    <div id="result" class="hidden">
+    <!-- TELA 3: RESULTADO -->
+    <div id="result" class="screen hidden">
       <h2>Resultado Final</h2>
       <p id="final-score"></p>
       <button id="restart-btn">Recomeçar</button>
+      <button id="voltar-menu-result" class="btn-voltar">Voltar ao menu</button>
+    </div>
+
+    <!-- TELA 4: CADASTRO -->
+    <div id="cadastro" class="screen hidden">
+      <h2>Cadastrar Nova Questão</h2>
+
+      <form id="form-cadastro">
+        <label>
+          Matéria
+          <input type="text" id="cad-materia" required placeholder="Ex: Nutrição Clínica">
+        </label>
+
+        <label>
+          Enunciado
+          <textarea id="cad-enunciado" required rows="4" placeholder="Digite a pergunta completa..."></textarea>
+        </label>
+
+        <label>
+          Alternativa A
+          <input type="text" id="cad-a" required>
+        </label>
+
+        <label>
+          Alternativa B
+          <input type="text" id="cad-b" required>
+        </label>
+
+        <label>
+          Alternativa C
+          <input type="text" id="cad-c" required>
+        </label>
+
+        <label>
+          Alternativa D
+          <input type="text" id="cad-d" required>
+        </label>
+
+        <label>
+          Alternativa E
+          <input type="text" id="cad-e" required>
+        </label>
+
+        <label>
+          Resposta correta
+          <select id="cad-resposta" required>
+            <option value="">Selecione...</option>
+            <option value="0">A</option>
+            <option value="1">B</option>
+            <option value="2">C</option>
+            <option value="3">D</option>
+            <option value="4">E</option>
+          </select>
+        </label>
+
+        <label>
+          Explicação (opcional)
+          <textarea id="cad-explicacao" rows="3" placeholder="Por que essa é a resposta correta?"></textarea>
+        </label>
+
+        <div class="form-actions">
+          <button type="submit" id="btn-salvar">Salvar Questão</button>
+          <button type="button" id="btn-cancelar" class="btn-secondary">Cancelar</button>
+        </div>
+      </form>
+
+      <p id="mensagem-cadastro" class="mensagem hidden"></p>
+    </div>
+
+    <!-- TELA 5: CARREGANDO -->
+    <div id="loading" class="screen">
+      <p>Carregando...</p>
     </div>
   </div>
 
+  <script src="supabase.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

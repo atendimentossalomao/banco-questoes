@@ -39,6 +39,73 @@ h1 {
   margin-top: 5px;
 }
 
+.screen {
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* MENU */
+.menu-info {
+  text-align: center;
+  margin-bottom: 25px;
+  padding: 15px;
+  background: #e8f4f8;
+  border-radius: 8px;
+  color: #2980b9;
+}
+
+.menu-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.menu-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.menu-btn.primary {
+  background: #3498db;
+  color: #fff;
+}
+
+.menu-btn.primary:hover {
+  background: #2980b9;
+  transform: translateY(-2px);
+}
+
+.menu-btn.secondary {
+  background: #ecf0f1;
+  color: #2c3e50;
+}
+
+.menu-btn.secondary:hover {
+  background: #d5dbdb;
+  transform: translateY(-2px);
+}
+
+.menu-btn .icon {
+  font-size: 1.3rem;
+}
+
+/* QUIZ */
 .progress {
   display: flex;
   justify-content: space-between;
@@ -57,7 +124,7 @@ h1 {
   margin-bottom: 15px;
 }
 
-h2 {
+#question-text {
   font-size: 1.2rem;
   margin-bottom: 20px;
   line-height: 1.5;
@@ -118,8 +185,10 @@ h2 {
   line-height: 1.5;
 }
 
+/* BOTÕES */
 button#next-btn,
-button#restart-btn {
+button#restart-btn,
+button#btn-salvar {
   width: 100%;
   padding: 14px;
   background: #3498db;
@@ -130,17 +199,35 @@ button#restart-btn {
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s;
+  margin-bottom: 10px;
 }
 
 button#next-btn:hover,
-button#restart-btn:hover {
+button#restart-btn:hover,
+button#btn-salvar:hover {
   background: #2980b9;
 }
 
-.hidden {
-  display: none;
+.btn-voltar,
+.btn-secondary {
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  color: #7f8c8d;
+  border: 2px solid #e0e6ed;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s;
 }
 
+.btn-voltar:hover,
+.btn-secondary:hover {
+  background: #f8f9fa;
+  color: #2c3e50;
+}
+
+/* RESULTADO */
 #result {
   text-align: center;
 }
@@ -149,4 +236,73 @@ button#restart-btn:hover {
   font-size: 1.3rem;
   margin: 20px 0;
   color: #2c3e50;
+}
+
+/* FORMULÁRIO DE CADASTRO */
+#form-cadastro {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#form-cadastro label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: #2c3e50;
+}
+
+#form-cadastro input,
+#form-cadastro textarea,
+#form-cadastro select {
+  padding: 10px 12px;
+  border: 2px solid #e0e6ed;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+#form-cadastro input:focus,
+#form-cadastro textarea:focus,
+#form-cadastro select:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+#form-cadastro textarea {
+  resize: vertical;
+}
+
+.form-actions {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mensagem {
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 15px;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.mensagem.sucesso {
+  background: #d5f4e6;
+  color: #27ae60;
+}
+
+.mensagem.erro {
+  background: #fadbd8;
+  color: #e74c3c;
+}
+
+#loading {
+  text-align: center;
+  padding: 40px 0;
+  color: #7f8c8d;
 }
