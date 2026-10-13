@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banco de Questões - Nutrição</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Banco de Questões</h1>
+      <p class="subtitle">Concursos de Nutrição</p>
+    </header>
+
+    <div id="loading">Carregando questões...</div>
+
+    <div id="quiz" class="hidden">
+      <div class="progress">
+        <span id="progress-text">Questão 1 de 3</span>
+        <span id="score-text">Acertos: 0</span>
+      </div>
+
+      <div class="materia" id="materia"></div>
+      <h2 id="question-text"></h2>
+      <div id="options" class="options"></div>
+
+      <div id="feedback" class="feedback hidden">
+        <p id="feedback-text"></p>
+        <p id="explanation"></p>
+      </div>
+
+      <button id="next-btn" class="hidden">Próxima</button>
+    </div>
+
+    <div id="result" class="hidden">
+      <h2>Resultado Final</h2>
+      <p id="final-score"></p>
+      <button id="restart-btn">Recomeçar</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

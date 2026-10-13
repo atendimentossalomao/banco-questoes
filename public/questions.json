@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "materia": "Nutrição Clínica",
+    "question": "Qual é a recomendação diária de ferro para gestantes?",
+    "options": ["15 mg", "27 mg", "45 mg", "60 mg"],
+    "answer": 1,
+    "explanation": "A RDA de ferro para gestantes é de 27 mg/dia, conforme as DRIs."
+  },
+  {
+    "id": 2,
+    "materia": "Nutrição Básica",
+    "question": "Qual macronutriente fornece 9 kcal por grama?",
+    "options": ["Proteína", "Carboidrato", "Lipídio", "Álcool"],
+    "answer": 2,
+    "explanation": "Os lipídios fornecem 9 kcal/g, enquanto proteínas e carboidratos fornecem 4 kcal/g."
+  },
+  {
+    "id": 3,
+    "materia": "Segurança Alimentar",
+    "question": "Qual temperatura é considerada zona de perigo para alimentos?",
+    "options": ["Entre 0°C e 5°C", "Entre 5°C e 60°C", "Entre 60°C e 100°C", "Abaixo de 0°C"],
+    "answer": 1,
+    "explanation": "A zona de perigo é entre 5°C e 60°C, onde bactérias se multiplicam rapidamente."
+  }
+]
